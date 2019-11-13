@@ -15,7 +15,10 @@ import io.cucumber.junit.CucumberOptions;
  * of the class with the word <code>Test</code> so Maven will run it as a test.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty", "html:target/report"}, stepNotifications = true)
+@CucumberOptions(
+		strict = true, 
+		plugin = {"pretty", "html:target/report"}, 
+		stepNotifications = true)
 public class MovieSearchTest {
 	//NOOP - just need the class annotations
 }

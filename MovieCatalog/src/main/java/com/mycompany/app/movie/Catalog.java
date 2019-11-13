@@ -18,8 +18,11 @@ public class Catalog {
 				result.add(movie);
 			}
 		}
-
 		return result;
+	}
+	
+	public List<Movie> findMovieThatStartsWithKeyword(final String keyword) {
+		throw new UnsupportedOperationException("IMPLEMENT ME!");
 	}
 
 	public List<Movie> findMovieByOrder(int index) {
