@@ -1,4 +1,4 @@
-package feature.movie;
+package feature.google;
 
 import org.junit.runner.RunWith;
 
@@ -17,8 +17,10 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		strict = true, 
-		plugin = {"pretty", "html:target/report"}, 
+		plugin = {"pretty", "html:target/report"},
+		features = "src/test/resources/feature/google",
+		glue = "feature.google",
 		stepNotifications = true)
-public class MovieSearchTest {
+public class GoogleSearchTest {
 	//NOOP - just need the class annotations
 }

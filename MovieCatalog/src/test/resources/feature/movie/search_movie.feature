@@ -25,7 +25,6 @@ Feature: Movie Search
 		When the customer searches for the third movie
 		Then 1 movie should have been found
 		And the movie title should be 'Avatar'
-		And I like monkeys that are bigger than 200 lbs
 		
 	Scenario: Testing data tables
 		Given this data is passed in:
