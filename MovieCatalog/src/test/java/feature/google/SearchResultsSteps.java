@@ -19,7 +19,7 @@ public class SearchResultsSteps {
 	
 	private static WebDriver webDriver;
 	
-	@Before
+	@Before("@browser")
 	public static void setupBrowser() {
 		webDriver = Browser.getWebDriver();
 	}

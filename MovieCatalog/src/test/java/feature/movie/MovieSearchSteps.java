@@ -53,11 +53,5 @@ public class MovieSearchSteps {
 	public void verifyMovieTitle() {
 		assertThat(resultList.get(0).getTitle(), equalTo("Avatar"));
 	}
-	
-	@Then("I like monkeys")
-	public void i_like_monkeys() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
-	}
 
 }

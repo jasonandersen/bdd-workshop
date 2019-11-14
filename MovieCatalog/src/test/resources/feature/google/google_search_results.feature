@@ -1,3 +1,4 @@
+@browser
 Feature: Search result placement for The Hartford
 	In order to ensure that our customers find us immediately in Google search results
 	As The Hartford online marketing team
