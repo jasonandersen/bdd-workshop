@@ -9,4 +9,10 @@ Feature: Search result placement for The Hartford
 		And I enter 'The Hartford' as search criteria
 		When I perform the search
 		Then I see the text 'https://www.thehartford.com' in the first search result
+	
+	Scenario: Search 's/v hello world'
+		Given I'm on the Google home page
+		And I enter 's/v hello world' as search criteria
+		When I perform the search
+		Then I see the text 'https://blog.svhelloworld.com' in the first search result
 		

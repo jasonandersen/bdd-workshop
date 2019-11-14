@@ -39,7 +39,7 @@ public class SearchResultsSteps {
 	public void i_perform_the_search() throws InterruptedException {
 		WebElement input = webDriver.findElement(By.name("q"));
 		input.submit();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	@Then("I see the text '(.+)' in the first search result")

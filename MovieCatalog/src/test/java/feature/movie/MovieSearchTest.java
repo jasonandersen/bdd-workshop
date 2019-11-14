@@ -20,6 +20,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty", "html:target/report"},
 		features = "src/test/resources/feature/movie",
 		glue = "feature.movie",
+		tags = "~@tag1",
 		stepNotifications = true)
 public class MovieSearchTest {
 	//NOOP - just need the class annotations

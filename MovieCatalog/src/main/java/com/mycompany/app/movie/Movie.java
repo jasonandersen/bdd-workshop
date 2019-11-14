@@ -3,10 +3,13 @@ package com.mycompany.app.movie;
 import java.util.Date;
  
 public class Movie {
-	private final String title;
-	private final String producer;
-	private final Date releaseDate;
+	private  String title;
+	private  String producer;
+	private  Date releaseDate;
 
+	public Movie() {
+		//NOOP;
+	}
 	public Movie(final String title, final String producer, final Date releaseDate) {
 		this.title = title;
 		this.producer = producer;

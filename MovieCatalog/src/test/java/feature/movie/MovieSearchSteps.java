@@ -2,6 +2,7 @@ package feature.movie;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertFalse;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +12,9 @@ import java.util.List;
 import com.mycompany.app.movie.Catalog;
 import com.mycompany.app.movie.Movie;
 
+import io.cucumber.datatable.DataTable;
+import io.cucumber.datatable.DataTableType;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +27,11 @@ public class MovieSearchSteps {
 	private Catalog catalog = new Catalog();
 	private List<Movie> resultList = new ArrayList<Movie>();
 
+	@Before
+	public void setupMovieDatatable() {
+		DataTableType.entry(Movie.class);
+	}
+	
 	@Given("a movie with the title '(.+)', produced by '(.+)', released (.+)$")
 	public void addNewMovie(String title, String producedBy, String released) throws ParseException {
 		Movie movie = new Movie(title, producedBy, new SimpleDateFormat("dd MMMMM yyyy").parse(released));
@@ -53,5 +62,12 @@ public class MovieSearchSteps {
 	public void verifyMovieTitle() {
 		assertThat(resultList.get(0).getTitle(), equalTo("Avatar"));
 	}
+	
+	@Given("these movies exist:")
+	public void these_movies_exist(DataTable dataTable) {
+	    List<Movie> movies = dataTable.asList(Movie.class);
+	    assertFalse(movies.isEmpty());
+	}
+
 
 }
