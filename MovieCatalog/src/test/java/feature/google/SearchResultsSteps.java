@@ -13,6 +13,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+/**
+ * Step definitions to perform Google searches using Selenium.
+ */
 public class SearchResultsSteps {
 	
 	private static final String GOOGLE_URL = "https://google.com";

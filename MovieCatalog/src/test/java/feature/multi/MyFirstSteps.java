@@ -1,10 +1,11 @@
 package feature.multi;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
+/**
+ * This step definitions class will handle part of the BDD scenario steps.
+ */
 public class MyFirstSteps {
 
 	private String message;

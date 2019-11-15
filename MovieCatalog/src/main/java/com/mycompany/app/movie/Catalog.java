@@ -3,6 +3,9 @@ package com.mycompany.app.movie;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Movie catalog.
+ */
 public class Catalog {
 	private final List<Movie> store = new ArrayList<Movie>();
 

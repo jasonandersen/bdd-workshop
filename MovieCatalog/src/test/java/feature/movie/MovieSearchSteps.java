@@ -31,10 +31,24 @@ public class MovieSearchSteps {
 	public void setupMovieDatatable() {
 		DataTableType.entry(Movie.class);
 	}
+
+	@SuppressWarnings("unchecked")
+	@Given("these movies exist:")
+	public void these_movies_exist(DataTable dataTable) {
+		/*
+		 * In order to get Cucumber to transform a data table into a list of movies in 
+		 * newer versions of Cucumber, it requires a little bit more work.
+		 */
+		DataTableType dataTableType = DataTableType.entry(Movie.class);
+		List<Movie> movies = (List<Movie>) dataTableType.transform(dataTable.asLists());
+		for (Movie movie : movies) {
+			catalog.addMovie(movie);
+		}
+	}
 	
 	@Given("a movie with the title '(.+)', produced by '(.+)', released (.+)$")
 	public void addNewMovie(String title, String producedBy, String released) throws ParseException {
-		Movie movie = new Movie(title, producedBy, new SimpleDateFormat("dd MMMMM yyyy").parse(released));
+		Movie movie = new Movie(title, producedBy, released);
 		catalog.addMovie(movie);
 	}
 
@@ -58,16 +72,11 @@ public class MovieSearchSteps {
 		assertThat(catalog.getSize(), equalTo(numMovies));
 	}
 
-	@Then("the movie title should be 'Avatar'")
-	public void verifyMovieTitle() {
-		assertThat(resultList.get(0).getTitle(), equalTo("Avatar"));
+	@Then("the movie title should be '(.+)'")
+	public void verifyMovieTitle(String title) {
+		assertThat(resultList.get(0).getTitle(), equalTo(title));
 	}
 	
-	@Given("these movies exist:")
-	public void these_movies_exist(DataTable dataTable) {
-	    List<Movie> movies = dataTable.asList(Movie.class);
-	    assertFalse(movies.isEmpty());
-	}
 
 
 }
